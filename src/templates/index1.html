@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+
+    <style>
+        .center-cropped {
+          object-fit: none; /* Do not scale the image */
+          object-position: center; /* Center the image within the element */
+          height: 100px;
+          width: 100px;
+        }
+        .vertical-nav {
+          min-width: 17rem;
+          width: 20rem;
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+          transition: all 0.4s;
+        }
+
+        .navbar.center .navbar-inner {
+            text-align: center;
+        }
+        .navbar.center .navbar-inner .nav {
+            float: none;
+            display:inline-block;
+            vertical-align: top;
+        }
+
+        .page-content {
+          width: calc(100% - 20rem);
+          margin-left: 20rem;
+          margin-right: 20rem;
+          transition: all 0.4s;
+        }
+
+        #bottom {
+            position: fixed;
+            left: 20%;
+            right: 0;
+            height: 30%;
+        }
+
+        #top {
+            top: 0;
+        }
+
+        #bottom {
+            bottom: 0;
+        }
+
+
+        img {
+          display: block;
+          max-width:640px;
+          max-height:480px;
+          width: auto;
+          height: auto;
+        }
+
+        .styled-table {
+            border-collapse: collapse;
+            margin-top: 25px ;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            width: 100%;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .styled-table-thead th  {
+            background-color: #34A0B3;
+            color: white;
+            text-align: left;
+        }
+
+        .styled-table tr  {
+            background-color: #fff;
+            color: black;
+            text-align: left;
+        }
+
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+        }
+
+        .styled-table tbody tr {
+            border-bottom: 1px solid #e3f2fd;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #fff;
+        }
+
+        .styled-table tbody tr:last-of-type {
+            border-bottom: 2px solid #e3f2fd;
+        }
+        tr:nth-child(odd) {background-color: #f2f2f2;}
+
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark  navbar-expand-lg" style="background-color: #317682; ">
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="#"><i class="mdi mdi-home-modern" aria-hidden="true"></i>Home <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#"><i class="mdi mdi-apps"></i>Apps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#"><i class="mdi mdi-file-chart"></i>AI Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#"><i class="mdi mdi-shopping"></i>Marketplace</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false"><i class="mdi mdi-monitor-dashboard"></i>
+                        Dashboards
+                    </a>
+                    <div class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Socail Distancing Violations</a>
+                        <a class="dropdown-item" href="#">Mask Violations</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Configure Dashboards</a>
+                    </div>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link disabled " href="#"><i class="mdi mdi-help-circle"></i>Help</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+        <!-- Vertical navbar -->
+    <div class="vertical-nav bg-white" id="sidebar">
+      <div class="py-4 px-3 mb-4 " style="background-color: #34A0B3;">
+        <div class="media d-flex align-items-center"><img class="center-cropped mr-3 rounded-circle img-thumbnail shadow-sm"  src="https://storage.googleapis.com/dev-dot-ai-project-ic.appspot.com/1/2020/05/960x0.jpg" alt="..." width="65"  class="mr-3 rounded-circle img-thumbnail shadow-sm">
+          <div class="media-body">
+            <h4 class="m-0 text-white">Social Distancing</h4>
+            <p class="font-weight-light text-white  mb-0">Violation Monitoring</p>
+          </div>
+        </div>
+      </div>
+
+
+      <ul class="nav flex-column bg-white mb-0">
+
+        <li class="nav-item">
+          <a href="#" class="nav-link text-dark font-italic">
+                    <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                    About
+                </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link text-dark font-italic">
+                    <i class="fa fa-cubes mr-3 text-primary fa-fw"></i>
+                    Services
+                </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link text-dark font-italic">
+                    <i class="fa fa-picture-o mr-3 text-primary fa-fw"></i>
+                    Gallery
+                </a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="page-content p-5">
+        <div class="top">
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="card" style="width: 640px;height=480px;">
+                      <img class="card-img-top" src="http://localhost:5000/feed_2" alt="Card image cap">
+                    </div>
+                </div>
+                <div class="col-xs-6" style="align:center;">
+
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-header">
+                            Camera Details
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Reception Camera</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Building 3</h6>
+                            <p class="card-text" id="person_count"></p>
+                            <a href="#" class="card-link">Generate Report</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        <div class="bottom">
+
+                <table id="table" class="styled-table">
+                    <thead>
+                    <tr class="styled-table-thead">
+                        <th>Camera</th>
+                        <th>Violations</th>
+                        <th>Person Count</th>
+                        <th>Time</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+                </table>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    function generateTable(table, headers) {
+
+        if (headers["camera"] === undefined) {
+            return
+        }
+
+        if (table.rows[1] === undefined){
+
+        }
+        else{
+            diff_length = table.rows.length - 5
+            console.log("diff_length = ",diff_length)
+            for (i = 0; i< diff_length; i++){
+                document.getElementById("table").deleteRow(1);
+            }
+        }
+
+        console.log("length = ",table.rows.length)
+        console.log(" time = ",new Date().toLocaleString())
+        let row = table.insertRow();
+        let cell = row.insertCell();
+        let text = document.createTextNode(headers["camera"]);
+        cell.appendChild(text);
+        cell = row.insertCell();
+        text = document.createTextNode(headers["violations"]);
+        cell.appendChild(text);
+        cell = row.insertCell();
+        text = document.createTextNode(headers["person_count"]);
+        cell.appendChild(text);
+        cell = row.insertCell();
+        text = document.createTextNode(headers["time"]);
+        cell.appendChild(text);
+
+    }
+
+    function httpGetAsync(theUrl, callback) {
+      let xmlHttpReq = new XMLHttpRequest();
+      xmlHttpReq.onreadystatechange = function () {
+        if (xmlHttpReq.readyState == 4 && xmlHttpReq.status == 200)
+          callback(xmlHttpReq.responseText);
+      }
+      xmlHttpReq.open("GET", theUrl, true); // true for asynchronous
+      xmlHttpReq.send(null);
+    }
+
+    var myInterval = setInterval(function() {
+        let dict= {};
+        httpGetAsync('http://localhost:5000/violations', function(result){
+            dict.camera="camera1"
+            dict.violations=result
+
+            httpGetAsync('http://localhost:5000/person_count', function(result){
+                dict.person_count=result
+                dict.time=new Date().toLocaleString()
+                document.getElementById("person_count").innerHTML = "Person Count : "+result;
+                if (dict.violations > 0){
+                    generateTable(table, dict);
+                }
+            });
+        });
+    }, 2000);
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: head-detection
+  namespace: cowin
+  labels:
+    app: head-detection
+
+spec:
+  selector:
+    app: head-detection
+  # sessionAffinity: ClientIP
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 5000
+
+
